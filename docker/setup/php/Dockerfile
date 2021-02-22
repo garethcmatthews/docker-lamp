@@ -28,6 +28,13 @@ RUN cd ~ && \
     curl -sS https://getcomposer.org/installer -o composer-setup.php && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
+# NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install --no-install-recommends --yes nodejs
+
+# Angular
+RUN npm install -g @angular/cli
+
 # Docker
-EXPOSE 80
-WORKDIR /var/www/html
+EXPOSE 80 4200
+WORKDIR /var/www

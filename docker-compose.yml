@@ -8,17 +8,6 @@ networks:
         driver: bridge
         internal: true
 services:
-    # DOCKER HUB: https://hub.docker.com/_/node
-    node:
-        build: ./docker/setup/node
-        container_name: ${COMPOSE_PROJECT_NAME}-node
-        networks:
-            - frontend
-        ports:
-            - 4200:4200
-        volumes:
-            - ./application-frontend:/home/node
-            - /home/node/node_modules
     mysql:
         # DOCKER HUB: https://hub.docker.com/_/mysql/
         container_name: ${COMPOSE_PROJECT_NAME}-mysql
@@ -51,10 +40,13 @@ services:
             - backend
             - frontend
         ports:
+            - 4200:4200
             - 8080:80
         volumes:
-            - ./application-backend:/var/www/html
-            - /var/www/html/vendor
+            - ./app-server:/var/www/server
+            - /var/www/server/vendor
+            - ./app-client:/var/www/client
+            - /var/www/client/node_modules
     phpmyadmin:
         # DOCKER HUB: https://hub.docker.com/_/phpmyadmin
         container_name: ${COMPOSE_PROJECT_NAME}-phpmyadmin
