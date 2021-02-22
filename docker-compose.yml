@@ -8,17 +8,6 @@ networks:
         driver: bridge
         internal: true
 services:
-    # DOCKER HUB: https://hub.docker.com/_/composer/
-    composer:
-        image: composer:2.0.8
-        container_name: ${COMPOSE_PROJECT_NAME}-composer
-        volumes:
-            - ./application-backend:/var/www/html
-        working_dir: /var/www/html
-        depends_on:
-            - php
-        networks:
-            - frontend
     # DOCKER HUB: https://hub.docker.com/_/node
     node:
         build: ./docker/setup/node
@@ -65,8 +54,7 @@ services:
             - 8080:80
         volumes:
             - ./application-backend:/var/www/html
-            - ./docker/tmp/logs/apache2:/var/log/apache2
-            - ./docker/tmp/logs/php:/var/log/php
+            - /var/www/html/vendor
     phpmyadmin:
         # DOCKER HUB: https://hub.docker.com/_/phpmyadmin
         container_name: ${COMPOSE_PROJECT_NAME}-phpmyadmin

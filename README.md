@@ -3,8 +3,7 @@
 A LAMP based Docker application for use in development.
 
 ### Containers
-* **lampserver-apache** - Apache, PHP7.4/8.0
-* **lampserver-composer** - composer
+* **lampserver-apache** - Apache, PHP7.4/8.0, composer
 * **lampserver-mysql** - MySQL 8
 * **lampserver-node** - Nodejs 14 and Angular
 * **lamp-phpmyadmin** - phpMyadmin
