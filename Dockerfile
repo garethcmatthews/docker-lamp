@@ -11,10 +11,10 @@ RUN apt-get update && \
 RUN echo "ServerName localhost\n" \
          "<VirtualHost *:80>\n" \
          "    ServerName localhost\n" \
-         "    DocumentRoot /var/www/server/public\n" \
+         "    DocumentRoot /var/www/app-server/public\n" \
          "    ErrorLog ${APACHE_LOG_DIR}/error.log\n" \
          "    CustomLog ${APACHE_LOG_DIR}/access.log combined\n" \
-         "    <Directory /var/www/server/public>\n" \
+         "    <Directory /var/www/app-server/public>\n" \
          "        AllowOverride All\n" \
          "        DirectoryIndex index.php index.html\n" \
          "        Options -Indexes +FollowSymLinks\n" \

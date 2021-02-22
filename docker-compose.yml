@@ -41,10 +41,10 @@ services:
             - 4200:4200
             - 8080:80
         volumes:
-            - ./app-server:/var/www/server
-            - /var/www/server/vendor
-            - ./app-client:/var/www/client
-            - /var/www/client/node_modules
+            - ./app-server:/var/www/app-server
+            - /var/www/app-server/vendor
+            - ./app-client:/var/www/app-client
+            - /var/www/app-client/node_modules
     phpmyadmin:
         # DOCKER HUB: https://hub.docker.com/_/phpmyadmin
         container_name: ${COMPOSE_PROJECT_NAME}-phpmyadmin
