@@ -1,4 +1,4 @@
-# LAMP (+Node/Angular) Docker Application
+# LAMP Docker Application
 
 A LAMP based Docker application for use in development.
 
@@ -8,10 +8,9 @@ A LAMP based Docker application for use in development.
 * **lamp-phpmyadmin** - phpMyadmin
 
 ### PHP version
-To change the PHP version update the docker file located at ./Dockerfile
+To change the PHP version update the docker file located at ./docker/php/Dockerfile
 
 ### URL's
-* **Angular** - http://localhost:4200
 * **PHP Application** - http://localhost:8080
 * **PhpMyadmin** - http://localhost:8888
 
@@ -21,20 +20,4 @@ docker exec -it lampserver-phpmyadmin /bin/bash
 docker exec -it lampserver-mysql /bin/bash  
 
 ### Server Code
-The apache server is setup to run from app-server/public  
-The vendor folder is excluded from volumes for speed  
-
-### Client Code
-Angular should be run from app-client
-The node_modules folder is excluded from volumes for speed  
-
-**Enable Angular file change watch**  
-
-    "architect": {
-        "build": {
-            "options": {
-                "poll": 1000,
-
-**Run/Watch**  
-npm install (keeping the node_modules folder on the container results in faster builds)  
-ng serve --host 0.0.0.0 --port 4200  
+The apache server is setup to run from public  

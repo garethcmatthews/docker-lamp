@@ -7,20 +7,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends --yes nano
 
 # Apache
-#COPY ./apache-default-vhost.conf /etc/apache2/sites-available/000-default.conf
-RUN echo "ServerName localhost\n" \
-         "<VirtualHost *:80>\n" \
-         "    ServerName localhost\n" \
-         "    DocumentRoot /var/www/app-server/public\n" \
-         "    ErrorLog ${APACHE_LOG_DIR}/error.log\n" \
-         "    CustomLog ${APACHE_LOG_DIR}/access.log combined\n" \
-         "    <Directory /var/www/app-server/public>\n" \
-         "        AllowOverride All\n" \
-         "        DirectoryIndex index.php index.html\n" \
-         "        Options -Indexes +FollowSymLinks\n" \
-         "        Require all granted\n" \
-         "    </Directory>\n" \
-         "</VirtualHost>" > /etc/apache2/sites-available/000-default.conf
+COPY ./apache-default-vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 # PHP: https://github.com/mlocati/docker-php-extension-installer
@@ -42,12 +29,9 @@ RUN cd ~ && \
     php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 # NodeJS
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install --no-install-recommends --yes nodejs
-
-# Angular
-RUN npm install -g @angular/cli
+#RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+#    apt-get install --no-install-recommends --yes nodejs
 
 # Docker
-EXPOSE 80 4200
+EXPOSE 80
 WORKDIR /var/www
