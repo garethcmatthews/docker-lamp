@@ -10,7 +10,7 @@ networks:
 services:
     mysql:
         # DOCKER HUB: https://hub.docker.com/_/mysql/
-        build: ./docker/mysql
+        build: ./build/docker_setup/development/mysql
         container_name: ${COMPOSE_PROJECT_NAME}-mysql
         environment:
             MYSQL_DATABASE: "${MYSQL_DATABASE}"
@@ -29,7 +29,7 @@ services:
             - 3306:3306
     php:
         # DOCKER HUB: https://hub.docker.com/_/php/
-        build: ./docker/php
+        build: ./build/docker_setup/development/php
         container_name: ${COMPOSE_PROJECT_NAME}-php
         depends_on:
             mysql:
@@ -38,12 +38,9 @@ services:
             - backend
             - frontend
         ports:
-            - 4200:4200
             - 8080:80
         volumes:
-            - ./src:/var/www/html
             - ./public:/var/www/html/public
-#           - /var/www/html/vendor
     phpmyadmin:
         # DOCKER HUB: https://hub.docker.com/_/phpmyadmin
         container_name: ${COMPOSE_PROJECT_NAME}-phpmyadmin
