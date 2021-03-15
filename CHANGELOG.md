@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.4
+- Updates
+    - Moved docker setup files
+
 ## 1.3
 - Updates
     - Moved angular to a seperate repository

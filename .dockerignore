@@ -1,8 +1,7 @@
 .dockerignore
 .git
 .gitignore
-.vscode
-docker/**
+build/**
 docker-compose*
 node_modules
 npm-debug.log
