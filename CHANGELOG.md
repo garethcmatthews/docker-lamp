@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.5
+- Updates
+    - Moved docker setup files (again)
+
 ## 1.4
 - Updates
     - Moved docker setup files
