@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.6.1
+- Updates
+    - Added README.md
+
 ## 1.6
 - Updates
     - Moved docker setup files to resource folder
