@@ -10,7 +10,7 @@ networks:
 services:
     mysql:
         # DOCKER HUB: https://hub.docker.com/_/mysql/
-        build: ./build/docker-lamp/development/mysql
+        build: ./resources/docker/development/mysql
         container_name: ${COMPOSE_PROJECT_NAME}-mysql
         environment:
             MYSQL_DATABASE: "${MYSQL_DATABASE}"
@@ -29,7 +29,7 @@ services:
             - 3306:3306
     php:
         # DOCKER HUB: https://hub.docker.com/_/php/
-        build: ./build/docker-lamp/development/php
+        build: ./resources/docker/development/php/php-8.1.27
         container_name: ${COMPOSE_PROJECT_NAME}-php
         depends_on:
             mysql:

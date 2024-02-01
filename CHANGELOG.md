@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 1.6
+- Updates
+    - Moved docker setup files to resource folder
+    - Moved README.md to ./resources/documentation/Docker.md
+    - Updated MySQL to 8.3.0
+    - Updated PHP-7 to 7.4.33
+    - Added PHP 8.0.30
+    - Added PHP 8.1.27
+    - Added PHP 8.2.15
+    - Added PHP 8.3.2
+
 ## 1.5
 - Updates
     - Moved docker setup files (again)

@@ -1,9 +1,8 @@
 .dockerignore
 .git
 .gitignore
-build/**
+resources/docker/**
+resources/documentation/**
 docker-compose*
-node_modules
-npm-debug.log
-README.md
+CHANGELOG.md
 LICENSE
