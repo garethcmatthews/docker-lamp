@@ -8,9 +8,24 @@ networks:
         driver: bridge
         internal: true
 services:
+    php:
+        # DOCKER HUB: https://hub.docker.com/_/php/
+        build: ./docker/development/apache-php-8.0.30
+        container_name: ${COMPOSE_PROJECT_NAME}-php
+        depends_on:
+            mysql:
+                condition: service_healthy
+        networks:
+            - backend
+            - frontend
+        ports:
+            - 8080:80
+        volumes:
+            - ./:/var/www/html
+            - /var/www/html/vendor
     mysql:
         # DOCKER HUB: https://hub.docker.com/_/mysql/
-        build: ./resources/docker/development/mysql
+        build: ./docker/development/mysql
         container_name: ${COMPOSE_PROJECT_NAME}-mysql
         environment:
             MYSQL_DATABASE: "${MYSQL_DATABASE}"
@@ -27,20 +42,6 @@ services:
             - backend
         ports:
             - 3306:3306
-    php:
-        # DOCKER HUB: https://hub.docker.com/_/php/
-        build: ./resources/docker/development/php/php-8.1.27
-        container_name: ${COMPOSE_PROJECT_NAME}-php
-        depends_on:
-            mysql:
-                condition: service_healthy
-        networks:
-            - backend
-            - frontend
-        ports:
-            - 8080:80
-        volumes:
-            - ./public:/var/www/html/public
     phpmyadmin:
         # DOCKER HUB: https://hub.docker.com/_/phpmyadmin
         container_name: ${COMPOSE_PROJECT_NAME}-phpmyadmin

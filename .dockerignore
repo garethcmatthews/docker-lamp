@@ -1,8 +1,0 @@
-.dockerignore
-.git
-.gitignore
-resources/docker/**
-resources/documentation/**
-docker-compose*
-CHANGELOG.md
-LICENSE
