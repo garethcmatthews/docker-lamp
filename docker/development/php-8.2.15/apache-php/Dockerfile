@@ -30,4 +30,4 @@ RUN cd ~ && \
 
 # Docker
 EXPOSE 80
-WORKDIR /var/www
+WORKDIR /var/www/html

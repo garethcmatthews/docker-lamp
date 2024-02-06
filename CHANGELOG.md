@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.7
+- Updates
+    - Moved docker files to docker folder
+    - Updated DockerReadme.md
+
 ## 1.6.1
 - Updates
     - Added README.md
