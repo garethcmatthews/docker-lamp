@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.8
+- Updates
+    - Moved docker files to resources/docker folder
+    - Updated PHPMyAdmin to 5.2.1
+    - Updated DockerReadme.md
 ## 1.7
 - Updates
     - Moved docker files to docker folder
