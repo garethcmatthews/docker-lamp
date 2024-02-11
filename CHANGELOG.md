@@ -1,8 +1,10 @@
 # CHANGELOG
 
-## 1.8.1
+## 1.8.2
 - Updated DockerReadme.md
 
+## 1.8.1
+- Updated DockerReadme.md
 
 ## 1.8
 - Moved docker files to resources/docker folder
