@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.8.3
+- Created php-dual configuration
+- Updated DockerReadme.md
+
 ## 1.8.2
 - Updated DockerReadme.md
 

@@ -40,59 +40,31 @@ Copy the files 'docker.env' and 'docker-compose.yaml' from the required PHP vers
 #### PHPmyadmin
 > http://localhost:8888
 
-### Running PHP7 and PHP8 together
-if you have a project that requires PHP7 and 8 running then select the PHP8 project you want and copy the files.
+### Running PHP7 and PHP8 side by side
+Copy the files 'docker.env' and 'docker-compose.yaml' from the 'php-dual' folder to the project root.
 
-> Example  
-> Copy ./resources/docker/development/php-8.3.2/docker.env to ./  
-> Copy ./resources/docker/development/php-8.3.2/docker-compose.yaml to ./
+> Copy ./resources/docker/development/php-dual/docker.env to ./  
+> Copy ./resources/docker/development/php-dual/docker-compose.yaml to ./
 
-Edit docker-compose.yaml and edit as follows...
+To edit the php version update ./docker-compose.yaml to the version folder that is required
 
-> PHP7  
-> Copy php section from php-7.4.33 docker-compose.yaml  
-> Name service php7  
-> Change container name from lamp-php to lamp-php7  
-> PHP8  
-> Change container name from lamp-php to lamp-php8  
-> Change ports from 8080:80 to 8088:80  
-
-example
-
+Example: for PHP 8.1.27  
 ```
-services:
-    php7:
-        # DOCKER HUB: https://hub.docker.com/_/php/
-        build: ./resources/docker/development/php-7.4.33/apache-php
-        container_name: lamp-php7
-        depends_on:
-            mysql:
-                condition: service_healthy
-        env_file:
-            - 'docker.env'
-        networks:
-            - backend
-            - frontend
-        ports:
-            - 8080:80
-        volumes:
-            - ./:/var/www/html
-            - /var/www/html/vendor
-    php8:
-        # DOCKER HUB: https://hub.docker.com/_/php/
-        build: ./resources/docker/development/php-8.3.2/apache-php
-        container_name: lamp-php8
-        depends_on:
-            mysql:
-                condition: service_healthy
-        env_file:
-            - 'docker.env'
-        networks:
-            - backend
-            - frontend
-        ports:
-            - 8088:80
-        volumes:
-            - ./:/var/www/html
-            - /var/www/html/vendor
+    php8:  
+        # DOCKER HUB: https://hub.docker.com/_/php/  
+        build: ./resources/docker/development/php-8.1.27/apache-php  
 ```
+
+#### Access Dual PHP box...
+> docker exec -it lamp-php7 /bin/bash  
+> docker exec -it lamp-php8 /bin/bash  
+#### Access MySQL box...
+> docker exec -it lamp-mysql /bin/bash  
+#### Access PHPMyAdmin box...
+> docker exec -it lamp-phpmyadmin /bin/bash  
+
+#### Browser
+> http://localhost:8080  
+> http://localhost:8088  
+#### PHPmyadmin
+> http://localhost:8888  
