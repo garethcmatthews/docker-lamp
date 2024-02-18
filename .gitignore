@@ -1,4 +1,6 @@
 /.env
+/composer.json
+/composer.lock
 /docker-compose.yaml
 /docker.env
 vendor/**

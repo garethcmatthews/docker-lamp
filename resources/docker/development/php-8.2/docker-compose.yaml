@@ -1,17 +1,17 @@
 # GITHUB: https://github.com/garethcmatthews/docker-lamp
 version: "3.8"
 networks:
-  frontend:
-    driver: bridge
-    internal: false
-  backend:
-    driver: bridge
-    internal: true
+    frontend:
+      driver: bridge
+      internal: false
+    backend:
+      driver: bridge
+      internal: true
 services:
-  php7:
+  php:
     # DOCKER HUB: https://hub.docker.com/_/php/
-    build: ./resources/docker/development/php-7.4/apache-php
-    container_name: lamp-php7
+    build: ./resources/docker/development/php-8.2/apache-php
+    container_name: php
     depends_on:
       mysql:
         condition: service_healthy
@@ -20,24 +20,10 @@ services:
       - frontend
     ports:
       - 8080:80
+    restart: always
     volumes:
       - ./:/var/www/lamp
-      - /var/www/lamp/vendor
-  php8:
-      # DOCKER HUB: https://hub.docker.com/_/php/
-      build: ./resources/docker/development/php-8.3/apache-php
-      container_name: lamp-php8
-      depends_on:
-        mysql:
-            condition: service_healthy
-      networks:
-        - backend
-        - frontend
-      ports:
-        - 8088:80
-      volumes:
-        - ./:/var/www/lamp
-        - /var/www/lamp/vendor
+      - /var/www/lamp/vendor/
   mysql:
     # DOCKER HUB: https://hub.docker.com/_/mysql/
     command: --default-authentication-plugin=mysql_native_password        

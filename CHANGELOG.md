@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.8.4
+- Removed env file requirement for development
+- Shortened php folder names
+- Added separate readme files
+
 ## 1.8.3
 - Created php-dual configuration
 - Updated DockerReadme.md
